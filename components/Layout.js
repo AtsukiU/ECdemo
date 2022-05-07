@@ -1,26 +1,29 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import logoImage from "/public/f1a36111695c36bee04976e545c2f67e.png";
+import logoImage from "../public/logo.png";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaSearch } from "react-icons/fa";
+import { AiOutlineMenu } from "react-icons/ai";
 
 export default function Layout({ children, title = "HP by Nextjs" }) {
   return (
-    <div className=" flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono">
+    <div className=" flex items-center flex-col min-h-screen text-sm ">
       <Head>
         <title>{title}</title>
       </Head>
       <header>
         {/* 1段目のヘッダー */}
-        <div className="flex justify-between h-14 bg-gray-700 px-3  ">
+        <div className="flex justify-between w-screen h-14 bg-gray-700 pr-3  ">
           <div className="flex items-center">
             {/* ヘッダーロゴ */}
             <Link href="/">
-              <Image src={logoImage} width={100} height={50} alt="logo" />
+              <div className="flex pl-1 min-w-full w-">
+                <Image src={logoImage} width={56} height={56} alt="logo" />
+              </div>
             </Link>
             {/* 検索インプット */}
-            <div className="flex items-center ">
+            <div className="flex items-center invisible sm:invisible md:visible lg:visible ">
               <span className="text-md absolute text-gray-400 ml-9 z-10">
                 <FaSearch />
               </span>
@@ -30,33 +33,46 @@ export default function Layout({ children, title = "HP by Nextjs" }) {
               />
             </div>
           </div>
-          {/* ショッピングカートとカウント */}
-          <div className="flex  items-center  my-2 px-1 hover:bg-gray-600 rounded">
-            <Link href="/ShopingCart">
-              <a src="/" className="text-gray-300 text-2xl flex items-center">
-                <FiShoppingCart />
-                <p className="pt-1 pl-2 text-xl text-orange-300">0</p>
-              </a>
-            </Link>
+          {/* ショッピングカートとメニュー */}
+          <div className="flex">
+            <div className="flex  items-center  my-2 px-2 hover:bg-gray-600 rounded">
+              <Link href="/">
+                <a className="text-2xl text-gray-300 visible sm:visible md:invisible lg:invisible">
+                  <AiOutlineMenu />
+                </a>
+              </Link>
+            </div>
+            <div className="flex  items-center  my-2 px-2 hover:bg-gray-600 rounded">
+              <Link href="/ShopingCart">
+                <a src="/" className="text-gray-300 text-2xl flex items-center">
+                  <FiShoppingCart />
+                </a>
+              </Link>
+            </div>
           </div>
         </div>
         {/* 2段目のヘッダー */}
-        <nav className="bg-gray-800 w-screen">
-          <div className="flex mx-auto items-center pl-8 h-14 w-xl">
-            <div className="flex space-x-6">
+        <nav className="bg-gray-800 w-screen invisible sm:invisible md:visible lg:visible">
+          <div className="flex mx-auto items-center justify-center pl-8 h-14 w-xl">
+            <div className="flex space-x-10">
               <Link href="/Mens">
                 <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
-                  メンズ
+                  Plants
                 </a>
               </Link>
               <Link href="/Ladies">
                 <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
-                  レディース
+                  Flowers
                 </a>
               </Link>
               <Link href="/Accessories">
                 <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
-                  アクセサリー
+                  Others
+                </a>
+              </Link>
+              <Link href="/Accessories">
+                <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
+                  Contact
                 </a>
               </Link>
             </div>
@@ -64,7 +80,7 @@ export default function Layout({ children, title = "HP by Nextjs" }) {
         </nav>
       </header>
       {/* メインページ */}
-      <main className=" flex flex-1 my-10 mx-10 flex-col max-w-screen-lg  w-screen bg-gray-100">
+      <main className=" flex flex-1 my-10 mx-10 flex-col  w-screen">
         {children}
       </main>
       {/* フッター */}
