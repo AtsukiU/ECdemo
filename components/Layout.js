@@ -1,101 +1,106 @@
 import Head from "next/head";
+import footer from "./Footer";
 import Link from "next/link";
 import Image from "next/image";
 import logoImage from "../public/logo.png";
-import { FiShoppingCart } from "react-icons/fi";
+import { FiShoppingCart, FiSearch } from "react-icons/fi";
 import { FaSearch } from "react-icons/fa";
 import { AiOutlineMenu } from "react-icons/ai";
+import Footer from "./Footer";
 
 export default function Layout({ children, title = "HP by Nextjs" }) {
   return (
-    <div className=" flex items-center flex-col min-h-screen text-sm ">
+    <div className=" min-h-screen  text-sm overflow-hidden">
       <Head>
         <title>{title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <header>
         {/* 1段目のヘッダー */}
-        <div className="flex justify-between w-screen h-14 bg-gray-700 pr-3  ">
+        <div className="flex justify-between items-center bg-gray-700">
           <div className="flex items-center">
             {/* ヘッダーロゴ */}
             <Link href="/">
-              <div className="flex pl-1 min-w-full w-">
+              <div className="flex w-16 h-15 ">
                 <Image src={logoImage} width={56} height={56} alt="logo" />
               </div>
             </Link>
-            {/* 検索インプット */}
-            <div className="flex items-center invisible sm:invisible md:visible lg:visible ">
-              <span className="text-md absolute text-gray-400 ml-9 z-10">
-                <FaSearch />
-              </span>
-              <input
-                className="rounded py-1 pr-2 pl-6 ml-8 w-67 relative w-90"
-                placeholder="Search"
-              />
-            </div>
           </div>
           {/* ショッピングカートとメニュー */}
-          <div className="flex">
-            <div className="flex  items-center  my-2 px-2 hover:bg-gray-600 rounded">
+          <div className="flex flex-end">
+            {/* 検索 */}
+            <div className="hidden md:block">
+              <div className="flex items-center mr-2">
+                <span className="text-md absolute text-gray-400 ml-1 z-10">
+                  <FaSearch />
+                </span>
+                <input
+                  className="rounded py-1  pl-6 relative "
+                  placeholder="Search"
+                />
+              </div>
+            </div>
+            {/* 検索 */}
+            <div className="flex  items-center   hover:bg-gray-600 rounded">
               <Link href="/">
-                <a className="text-2xl text-gray-300 visible sm:visible md:invisible lg:invisible">
-                  <AiOutlineMenu />
+                <a className="text-2xl  p-1 text-gray-300 block md:hidden">
+                  <FiSearch />
                 </a>
               </Link>
             </div>
-            <div className="flex  items-center  my-2 px-2 hover:bg-gray-600 rounded">
+
+            <div className="flex  items-center p-1  mr-1 hover:bg-gray-600 rounded">
               <Link href="/ShopingCart">
                 <a src="/" className="text-gray-300 text-2xl flex items-center">
                   <FiShoppingCart />
                 </a>
               </Link>
             </div>
-          </div>
-        </div>
-        {/* 2段目のヘッダー */}
-        <nav className="bg-gray-800 w-screen invisible sm:invisible md:visible lg:visible">
-          <div className="flex mx-auto items-center justify-center pl-8 h-14 w-xl">
-            <div className="flex space-x-10">
-              <Link href="/Mens">
-                <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
-                  Plants
-                </a>
-              </Link>
-              <Link href="/Ladies">
-                <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
-                  Flowers
-                </a>
-              </Link>
-              <Link href="/Accessories">
-                <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
-                  Others
-                </a>
-              </Link>
-              <Link href="/Accessories">
-                <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
-                  Contact
+            <div className="flex  items-center mr-1  hover:bg-gray-600 rounded">
+              <Link href="/">
+                <a className="text-2xl  p-1 text-gray-300 block md:hidden">
+                  <AiOutlineMenu />
                 </a>
               </Link>
             </div>
           </div>
-        </nav>
+        </div>
+        {/* 2段目のヘッダー */}
+        <div className="bg-gray-800  hidden md:block">
+          <nav>
+            <div className="flex items-center justify-center h-10">
+              <div className="space-x-10">
+                <Link href="/Mens">
+                  <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
+                    Plants
+                  </a>
+                </Link>
+                <Link href="/Ladies">
+                  <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
+                    Flowers
+                  </a>
+                </Link>
+                <Link href="/Accessories">
+                  <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
+                    Others
+                  </a>
+                </Link>
+                <Link href="/Accessories">
+                  <a className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">
+                    Contact
+                  </a>
+                </Link>
+              </div>
+            </div>
+          </nav>
+        </div>
       </header>
       {/* メインページ */}
-      <main className=" flex flex-1 my-10 mx-10 flex-col  w-screen">
-        {children}
-      </main>
+      <main className=" flex flex-1 flex-co min-w-0">{children}</main>
       {/* フッター */}
-      <footer className=" w-full h-12 flex justify-center items-center border-t">
-        <a
-          className="flex items-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className="">
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+
+      <footer className="px-4 mt-10 m-auto divide-y w-4/5 lg:w-3/5 ">
+        <Footer />
       </footer>
     </div>
   );

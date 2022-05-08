@@ -18,3 +18,15 @@ a {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+}
