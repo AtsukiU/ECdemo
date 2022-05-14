@@ -31,7 +31,7 @@ const FlowerGrid = () => {
   return (
     <div className="py-10 grid lg:grid-cols-2 md:grid-cols-1 gap-4 mx-4">
       {/* 商品グリットメイン */}
-      <div className="bg-gray-50 flex justify-center mb-2">
+      <div className="flex justify-center mb-2">
         <div className="flex flex-col w-full  ">
           <h1 className="pt-2 justify-center flex">花束</h1>
           <p className=" pt-2 flex justify-center text-gray-500">
@@ -47,6 +47,7 @@ const FlowerGrid = () => {
                     width={360}
                     height={220}
                     objectFit="cover"
+                    className="rounded-lg"
                   />
                 </div>
               );
@@ -57,48 +58,48 @@ const FlowerGrid = () => {
       {/* 商品グリットメイン */}
       {/* 右4マス */}
       <div className=" grid grid-cols-1 gap-4">
-        <div className="bg-gray-50 flex justify-center ">
+        <div className="flex justify-center ">
           <div className="flex flex-col ">
             <h2 className="pt-2  justify-center flex">
               フラワーアレンジメント
             </h2>
 
-            <div className="pt-2  gap-4 grid grid-cols-2">
-              <div className="">
-                <Image
-                  src={ArrangementImg1}
-                  alt="ts"
-                  width={360}
-                  height={220}
-                  objectFit="cover"
-                />
-              </div>
-              <div className="">
-                <Image
-                  src={ArrangementImg2}
-                  alt="ts"
-                  width={360}
-                  height={220}
-                  objectFit="cover"
-                />
-              </div>
+            <div className="pt-5  gap-4 grid grid-cols-2">
+              <Image
+                src={ArrangementImg1}
+                alt="ts"
+                width={360}
+                height={200}
+                objectFit="cover"
+                className="rounded-lg"
+              />
+
+              <Image
+                src={ArrangementImg2}
+                alt="ts"
+                width={360}
+                height={200}
+                objectFit="cover"
+                className="rounded-lg"
+              />
             </div>
           </div>
         </div>{" "}
-        <div className="bg-gray-50 flex justify-center ">
+        <div className=" flex justify-center ">
           <div className="flex flex-col ">
             <h2 className="pt-2 justify-center flex">バラ売り</h2>
 
-            <div className="pt-2 mx-3 gap-4 grid  grid-cols-2 sm:grid-cols-4 md:grid-cols-4">
+            <div className="pt-5  gap-4 grid  grid-cols-2 sm:grid-cols-4 md:grid-cols-4">
               {Seikas.map((Seika) => {
                 return (
                   <div key={Seika}>
                     <Image
                       src={Seika.src}
                       alt="seika"
-                      width={170}
+                      width={172}
                       height={200}
                       objectFit="cover"
+                      className="rounded-lg"
                     />
                   </div>
                 );

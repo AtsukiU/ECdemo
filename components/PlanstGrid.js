@@ -18,17 +18,18 @@ const PlanstGrid = () => {
   return (
     <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 py-10 mx-4">
       {/* 商品グリットメイン */}
-      <div className="bg-gray-50 flex justify-center ">
+      <div className=" flex justify-center ">
         <div className="flex flex-col ">
           <h1 className="pt-2  justify-center flex">観葉植物</h1>
 
-          <div className="pt-2 rounded-lg">
+          <div className="pt-2 rounded-md">
             <Image
               src={plantsMainImg}
               alt="ts"
-              width={750}
+              width={680}
               height={500}
               objectFit="cover"
+              className="rounded-lg"
             />
           </div>
         </div>
@@ -38,7 +39,7 @@ const PlanstGrid = () => {
       <div className=" grid grid-cols-2 gap-4">
         {plants.map((plant) => {
           return (
-            <div className="bg-gray-50 flex justify-center " key={plant}>
+            <div className=" flex justify-center " key={plant}>
               <div className="flex flex-col ">
                 <h2 className="pt-2   justify-center flex">{plant.title}</h2>
                 <div className="pt-2">
@@ -48,6 +49,7 @@ const PlanstGrid = () => {
                     width={330}
                     height={220}
                     objectFit="cover"
+                    className="rounded-lg"
                   />
                 </div>
               </div>

@@ -28,6 +28,7 @@ const Others = () => {
                   width={330}
                   height={220}
                   objectFit="cover"
+                  className="rounded-md"
                 />
               </div>
             </div>
